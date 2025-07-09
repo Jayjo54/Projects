@@ -1,0 +1,84 @@
+body{  /* CSS properties to align items in center */
+    background-color: black; 
+    cursor: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+/* start of Input design */
+#number-container{
+    text-align: center;
+    margin: 20px;
+}
+#number-container > h1{
+    font-size: 50px;
+}
+#number-container input[type=number]{
+    font-size: 20px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    text-align: center;
+    background-color: transparent;
+    overflow-y: scroll;
+    cursor: text;
+    
+}
+input:focus{
+    outline: none;
+    transition: 0.3s ease;
+}
+/* to remove the dial scroll on input box */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+#number-container button{ /* Adding style to the button */
+    font-size: 30px;
+    margin: 20px;
+    padding: 5px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: none;
+    width: 150px;
+}
+/* button hover animation*/
+#number-container button:hover{
+    background-color: white;
+    color: black;
+    transform: scale(1.1);
+}
+h1,button,input[type=number],p{ /* Used Google Fonts for font-family */
+    font-family: 'fira code', monospace;
+    color: white;
+}
+#result{ /* transition animation for the result */
+    font-size: 30px;
+    opacity: 0;
+    transition:opacity 0.5s ease;
+}
+#result.show{
+    opacity: 1;
+}
+.result-container{
+    word-break:break-all;
+    overflow-wrap: break-word;
+    position: relative;
+
+}
+.cursor-glow { /* Cursor glow */
+  position:fixed;
+  width: 40px;
+  height: 40px;
+  background: #eeff05;
+  opacity: 90%;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 20px 10px lab(89.27% -14.81 88.01 / 0.893);
+  z-index:9999;
+  overflow: hidden;
+}
