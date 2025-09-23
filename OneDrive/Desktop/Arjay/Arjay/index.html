@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arjay M.</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <script src="scripts/index.js"></script>
+    <script src="node_modules/animejs/lib/anime.iife.min.js"></script>
+    <script src="https://kit.fontawesome.com/d4b396f675.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="images/logo2.png">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="navBar">
+            <span style="float: left;"><img id="home" src="images/logo2.png"></span>
+            <ul>
+                <li><a href="#" onclick="scrollToAbout('project')">PROJECTS</a></li>
+                <li><a href="#" onclick="scrollToAbout('about')">ABOUT</a></li>
+                <li><a href="#">HOME</a></li>
+            </ul>
+        </div> 
+    </nav>
+</header>
+
+<main>
+    <section>
+        <div class="context-container">
+            <svg id="logo" viewBox="0 0 500 150">
+                <text x="50%" y="60%" text-anchor="middle" dominant-baseline="middle"
+                    font-size="130" fill="none" stroke="currentColor" stroke-width="5" stroke-linejoin="round"
+                    stroke-linecap="round" class="line">
+                    ARJAY&lt;/&gt;
+                </text>
+            </svg>
+            <div class="large centered grid square-grid">
+                <p class="text-xl textsplit">
+                    <span style="color: #9D00FF;">Backend Developer</span> | <span style="color: #FFD700;">JavaScript Enthusiast</span>
+                </p>
+            </div>
+        <div class="borderline"></div>
+    </div>
+</section>
+<section>
+    <div class="about-body" id="about">
+        <h1>About Me</h1>
+            <p>
+                Fresh IT graduate with a passion for JavaScript, building web applications, and continuous learning.
+                Skilled in backend development and eager to expand into frontend technologies to become a well-rounded full-stack developer.
+                Graduated from ACLC College of Meycauayan with a BS in Information Technology, driven to create impactful, user-focused web solutions.
+                Outside coding world, I enjoy playing video games and watching sitcoms for leisure time.
+            </p>
+</section>
+
+<section>
+        <h1> S K I L L S</h1>
+        <div class="skillSet">
+            <div class="skills backend">
+                Backend
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress ="70"></div>
+                </div>
+            </div>
+            <div class="skills sk-frontend">
+                Frontend
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress="50"></div>
+                </div>
+            </div>
+            <div class="skills sk-dbms">
+                MySQL
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress ="60"></div>
+                </div>
+            </div>
+            <div class="skills sk-js">
+                JavaScript
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress ="30"></div>
+                </div>
+            </div>
+            <div class="skills sk-python">
+                Python
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress ="20"></div>
+                </div>
+            </div>
+            <div class="skills sk-networking">
+                Networking
+                <div class="progress-container">
+                    <div class="progress-bar" data-progress ="30"></div>
+                </div>
+            </div>
+        </div>
+        <h2><a href="www.fb.com">Resume <i id="redirect" class="fa-solid fa-up-right-from-square"></i></a></h2>
+    </div>
+</section>
+
+<section>
+    <div class="about-body" id="project">
+        <h1>Projects</h1>
+        <h2>Web-based Helpdesk ICT Ticketing System</h2>
+        <i style="color: blueviolet;" class="fa-brands fa-php"></i>
+        <i style="color: yellow " class="fa-brands fa-square-js"></i>
+        <i style="color: silver" class="fa-solid fa-database"></i>
+
+        <div class="project-card">
+            <img src="images/image.png">
+            <p>
+            a PHP web-based project that caters tickets from all public schools in Meycauayan City.
+            Integrated with DATA-PMS that handles all the assets from SDO Meycauayan.
+            </p>
+        </div>
+    </div>
+</section>
+    
+</main>
+<footer>
+    No Copyrights Reserved.
+</footer>
+</body>
+</html>
