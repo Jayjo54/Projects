@@ -1,0 +1,16 @@
+** start of script.js **
+
+let email = "avmoreno29@gmail.com";
+
+function maskEmail(email) {
+ let maskRange = email.slice(1, email.indexOf("@") -1);
+ let mask = "*".repeat(maskRange.length);
+ return email.replace(maskRange, mask);
+}
+console.log(maskEmail(email));
+console.log(maskEmail("freecodecamp@example.com"));
+console.log(maskEmail("info@test.dev"));
+console.log(maskEmail("user@domain.org"));
+
+** end of script.js **
+
