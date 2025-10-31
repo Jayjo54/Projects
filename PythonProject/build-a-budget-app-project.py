@@ -1,0 +1,77 @@
+class Category:
+    def __init__(self, category):
+        self.category = category
+        self.ledger = []
+
+    def deposit(self, amount, description=''):
+        self.ledger.append({'amount': amount, 'description': description})
+
+    def withdraw(self, amount, description=''):
+        if not self.check_funds(amount):
+            return False
+        self.ledger.append({'amount': -amount, 'description': description})
+        return True
+
+    def get_balance(self):
+        return sum(tx['amount'] for tx in self.ledger)
+
+    def transfer(self, amount, budget_category):
+        if not self.check_funds(amount):
+            return False
+        self.withdraw(amount, f"Transfer to {budget_category.category}")
+        budget_category.deposit(amount, f"Transfer from {self.category}")
+        return True
+
+    def check_funds(self, amount):
+        return amount <= self.get_balance()
+
+    def __str__(self):
+        title = f"{self.category:*^30}\n"
+        items = ""
+        for tx in self.ledger:
+            items += f"{tx['description'][:23]:23}{tx['amount']:>7.2f}\n"
+        total = f"Total: {self.get_balance():.2f}"
+        return title + items + total
+        
+def create_spend_chart(categories):
+    # Calculate total spent and percentages
+    spendings = []
+    category_names = []
+
+    for category in categories:
+        total_spent = sum(-tx['amount'] for tx in category.ledger if tx['amount'] < 0)
+        spendings.append(total_spent)
+        category_names.append(category.category)
+
+    total = sum(spendings)
+    percentages = [(spent / total * 100) for spent in spendings]
+
+    # Round down to nearest 10
+    rounded = [int(p // 10) * 10 for p in percentages]
+
+    # Build chart
+    res = "Percentage spent by category\n"
+
+    for i in range(100, -1, -10):
+        res += f"{i:>3}|"
+        for p in rounded:
+            res += " o " if p >= i else "   "
+        res += " \n"
+
+    # Horizontal line
+    res += "    -" + "---" * len(categories) + "\n"
+
+    # Vertical category names
+    max_len = max(len(name) for name in category_names)
+    for i in range(max_len):
+        res += "     "
+        for name in category_names:
+            res += f"{name[i] if i < len(name) else ' '}  "
+        if i < max_len - 1:
+            res += "\n"
+
+    return res.rstrip("\n")
+
+
+** end of main.py **
+

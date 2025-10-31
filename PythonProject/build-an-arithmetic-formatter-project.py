@@ -1,0 +1,63 @@
+
+def arithmetic_arranger(problems, show_answers=False):
+    # Error handling
+    if len(problems) > 5:
+        return "Error: Too many problems."
+
+    first_line = []
+    second_line = []
+    dash_line = []
+    answer_line = []
+
+    for problem in problems:
+        parts = problem.split()
+        if len(parts) != 3:
+            return "Error: Each problem must contain two operands and one operator."
+
+        num1, operator, num2 = parts
+
+        # Check operator
+        if operator not in ['+', '-']:
+            return "Error: Operator must be '+' or '-'."
+
+        # Check digits
+        if not (num1.isdigit() and num2.isdigit()):
+            return "Error: Numbers must only contain digits."
+
+        # Check number length
+        if len(num1) > 4 or len(num2) > 4:
+            return "Error: Numbers cannot be more than four digits."
+
+        # Calculate spacing
+        width = max(len(num1), len(num2)) + 2
+        top = num1.rjust(width)
+        bottom = operator + num2.rjust(width - 1)
+        line = '-' * width
+
+        first_line.append(top)
+        second_line.append(bottom)
+        dash_line.append(line)
+
+        if show_answers:
+            result = str(eval(problem))
+            answer_line.append(result.rjust(width))
+
+    # Join everything with four spaces between problems
+    arranged_problems = (
+        '    '.join(first_line) + '\n' +
+        '    '.join(second_line) + '\n' +
+        '    '.join(dash_line)
+    )
+
+    if show_answers:
+        arranged_problems += '\n' + '    '.join(answer_line)
+
+    return arranged_problems
+
+
+# Example runs:
+print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
+print()
+print(arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"], show_answers=True))
+
+
